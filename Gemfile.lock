@@ -2,12 +2,14 @@ PATH
   remote: .
   specs:
     upgrader (0.1.0)
+      thor (>= 1.0.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     minitest (5.14.4)
     rake (12.3.3)
+    thor (1.1.0)
 
 PLATFORMS
   ruby
