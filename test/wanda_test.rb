@@ -2,9 +2,9 @@
 
 require 'test_helper'
 
-class UpgraderTest < Minitest::Test
+class WandaTest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::Upgrader::VERSION
+    refute_nil ::Wanda::VERSION
   end
 
   def test_it_does_something_useful

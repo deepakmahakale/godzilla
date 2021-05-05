@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'upgrader/version'
-require 'upgrader/cli'
+require 'wanda/version'
+require 'wanda/cli'
 
-module Upgrader
+module Wanda
   class Error < StandardError; end
   # Your code goes here...
 end

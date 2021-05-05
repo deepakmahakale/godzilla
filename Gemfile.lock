@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    upgrader (0.1.0)
+    wanda (0.1.0)
       rails5-spec-converter (>= 2.0.0)
       rubocop-rspec (>= 1.28.0)
       thor (>= 1.0.0)
@@ -45,9 +45,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  wanda!
   minitest (~> 5.0)
   rake (~> 12.0)
-  upgrader!
+  godzilla!
 
 BUNDLED WITH
    2.1.4

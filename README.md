@@ -1,7 +1,7 @@
-# Upgrader
+# Wanda
 
 Welcome to your new gem! In this directory, you'll find the files you need to be
-able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/upgrader`.
+able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wanda`.
 To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
@@ -11,7 +11,7 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'upgrader'
+gem 'wanda'
 ```
 
 And then execute:
@@ -20,7 +20,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install upgrader
+    $ gem install wanda
 
 ## Usage
 
@@ -39,10 +39,10 @@ push git commits and tags, and push the `.gem` file to [rubygems.org](https://ru
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/deepakmahakale/upgrader.
+Bug reports and pull requests are welcome on GitHub at https://github.com/deepakmahakale/wanda.
 This project is intended to be a safe, welcoming space for collaboration, and
 contributors are expected to adhere to the
-[code of conduct](https://github.com/deepakmahakale/upgrader/blob/master/CODE_OF_CONDUCT.md).
+[code of conduct](https://github.com/deepakmahakale/wanda/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -52,6 +52,6 @@ The gem is available as open source under the terms of the
 
 ## Code of Conduct
 
-Everyone interacting in the Upgrader project's codebases, issue trackers,
+Everyone interacting in the Wanda project's codebases, issue trackers,
 chat rooms and mailing lists is expected to follow the
-[code of conduct](https://github.com/deepakmahakale/upgrader/blob/master/CODE_OF_CONDUCT.md).
+[code of conduct](https://github.com/deepakmahakale/wanda/blob/master/CODE_OF_CONDUCT.md).

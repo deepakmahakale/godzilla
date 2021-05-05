@@ -6,5 +6,5 @@ description: Home page
 permalink: /
 ---
 
-# Upgrader
+# Wanda
 Upgrade Rails with one command

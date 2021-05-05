@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in upgrader.gemspec
+# Specify your gem's dependencies in wanda.gemspec
 gemspec
 
 group :development do

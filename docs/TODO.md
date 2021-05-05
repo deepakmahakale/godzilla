@@ -8,7 +8,7 @@ permalink: /todo
 
 # TODO
 
-### [v0.0.1.beta](https://github.com/deepakmahakale/upgrader/milestone/1)
+### [v0.0.1.beta](https://github.com/deepakmahakale/wanda/milestone/1)
 - [ ] keep updated list of latest rails versions without releasing new gem version
 - [ ] **Test cases**
 - [ ] ⇨ Test for different versions
@@ -20,7 +20,7 @@ permalink: /todo
 - [ ] **5.0 -> 5.2**
 - [ ] **5.2 -> 6.0**
 
-### [v0.1.0](https://github.com/deepakmahakale/upgrader/milestone/3)
+### [v0.1.0](https://github.com/deepakmahakale/wanda/milestone/3)
 Add support for popular gems:
 - [ ] devise
 - [ ] aasm

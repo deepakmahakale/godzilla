@@ -11,7 +11,7 @@ permalink: /installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'upgrader'
+gem 'wanda'
 ```
 
 And then execute:
@@ -20,4 +20,4 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install upgrader
+    $ gem install wanda

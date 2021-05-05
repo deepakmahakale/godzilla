@@ -1,25 +1,25 @@
 # frozen_string_literal: true
 
-require_relative 'lib/upgrader/version'
+require_relative 'lib/wanda/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'upgrader'
-  spec.version       = Upgrader::VERSION
+  spec.name          = 'wanda'
+  spec.version       = Wanda::VERSION
   spec.authors       = ['Deepak Mahakale']
   spec.email         = ['deepakmahakale@gmail.com']
 
   spec.summary       = 'Helps you upgrade rails application easily'
   spec.description   = 'Helps you upgrade rails application easily.
     Additional support for other gems as well'
-  spec.homepage      = 'https://github.com/deepakmahakale/upgrader'
+  spec.homepage      = 'https://github.com/deepakmahakale/wanda'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 1.9.3')
 
   spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/deepakmahakale/upgrader'
-  spec.metadata['changelog_uri'] = 'https://github.com/deepakmahakale/upgrader/CHANGELOG'
+  spec.metadata['source_code_uri'] = 'https://github.com/deepakmahakale/wanda'
+  spec.metadata['changelog_uri'] = 'https://github.com/deepakmahakale/wanda/CHANGELOG'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
