@@ -1,10 +1,12 @@
 ---
 layout: default
-title: TODO
-nav_order: 2
-description: "TODO"
+title: Todo
+nav_order: 3
+description: Todo
 permalink: /todo
 ---
+
+# TODO
 
 ### [v0.0.1.beta](https://github.com/deepakmahakale/upgrader/milestone/1)
 - [ ] keep updated list of latest rails versions without releasing new gem version
