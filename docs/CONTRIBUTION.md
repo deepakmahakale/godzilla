@@ -10,5 +10,5 @@ permalink: /contribution
 
 PR's are welcome.
 Feel free to contribute by:
-- Adding support for any of the above gems
-- Opening issues
+- Raising a pull request for any of the [TODO items](https://deepakmahakale.in/upgrader/todo)
+- Opening issues or feature requests [here](https://github.com/deepakmahakale/upgrader/issues)
