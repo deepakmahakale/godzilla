@@ -8,6 +8,39 @@ module Upgrader
   # CLI implementation for upgrader
   class CLI < Thor
     include Thor::Actions
+
+    REQUIRED_RUBY = {
+    # rails_version => required_ruby_version
+      '6.2' => {
+        required: '2.5.0',
+        recommended: '3.0'
+      },
+      '6.1' => {
+        required: '2.5.0',
+        recommended: '3.0'
+      },
+      '6.0' => {
+        required: '2.5.0',
+        recommended: '2.6'
+      },
+      '5.2' => {
+        required: '2.2.2',
+        recommended: '2.5'
+      },
+      '5.1' => {
+        required: '2.2.2',
+        recommended: '2.5'
+      },
+      '5.0' => {
+        required: '2.2.2',
+        recommended: '2.4'
+      },
+      '4.2' => {
+        required: '1.9.3',
+        recommended: '2.2'
+      }
+    }.freeze
+
     def self.exit_on_failure?
       true
     end
@@ -28,6 +61,9 @@ module Upgrader
         gsub_file "Gemfile", /gem\s+["']+rails['"\s,]+([~>\s\d\.]+)/ do |match|
           # match.gsub(/[\d\.]+/, options[:target_rails])
           match.gsub(/(~>\s*)*[\d\.]+/, '5.2.4')
+        end
+        gsub_file "Gemfile", /^\s*ruby\s+.?([\d\.]+(p\d+)?)/ do |match|
+          match.gsub(/[\d\.]+(p\d+)?/, required_ruby_version('6.0'))
         end
         gsub_file "config/application.rb", /^.*active_record.raise_in_transactional_callbacks.*\n/, ''
         gsub_file "config/application.rb", /^.*config.serve_static_assets.*\n/ do |match|
@@ -125,6 +161,12 @@ module Upgrader
       end
 
       run("cd #{options[:project_directory]} && rails5-spec-converter")
+    end
+
+    private
+
+    def required_ruby_version(rails_version)
+      REQUIRED_RUBY.dig(rails_version, :recommended)
     end
   end
 end
