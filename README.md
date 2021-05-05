@@ -26,6 +26,9 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## TODO
+[TODO](docs/TODO.md)
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies.
