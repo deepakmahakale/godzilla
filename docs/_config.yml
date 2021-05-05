@@ -1,3 +1,22 @@
 remote_theme: pmarsceill/just-the-docs
 title: UPGRADER ⬆️
 description: Upgrade Rails with one command
+
+# Theme specific config
+# ==============================================================================
+# Footer last edited timestamp
+# Show or hide edit time - page must have `last_modified_date` defined in the
+# frontmatter
+# last_edit_timestamp: true
+# Uses ruby's time format:
+#   https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
+# last_edit_time_format: "%b %e %Y at %I:%M %p"
+
+# Footer "Edit this page on GitHub" link text
+gh_edit_link: true
+gh_edit_link_text: Edit this page on GitHub.
+gh_edit_repository: https://github.com/deepakmahakale/upgrader
+gh_edit_branch: master
+gh_edit_source: docs
+gh_edit_view_mode: tree
+# ==============================================================================
