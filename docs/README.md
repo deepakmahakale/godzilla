@@ -6,5 +6,5 @@ description: Home page
 permalink: /
 ---
 
-# Upgrader ⬆️
+# Upgrader
 Upgrade Rails with one command
