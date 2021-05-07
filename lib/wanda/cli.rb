@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'thor'
-require 'wanda/rails'
+require 'wanda/upgrade'
 
 # Ref: https://nandovieira.com/creating-generators-and-executables-with-thor
 module Wanda
@@ -27,31 +27,20 @@ module Wanda
       say "Wanda #{VERSION}"
     end
 
-    desc 'rails', 'rails upgrade'
-    subcommand 'rails', Wanda::Rails
+    desc 'upgrade [GEM]', 'Upgrade gem'
+    subcommand 'upgrade', Wanda::Upgrade
 
-    # option :project_directory, aliases: '-d'
-    # def upgrade(gem, *extras)
-    #   klass = Object.const_get("Wanda::#{classify(gem)}")
-    #   obj = klass.new(options)
-    #   obj.rails4_2_to_5_2(extras)
-    # end
-
-    # desc 'list [options]', 'List supported gems'
-    # def list
-    #   message = <<~STR
-    #     Supports upgrade for:
-    #     #{'=' * 76}
-    #         #{format_list}
-    #   STR
-    #   puts set_color(message, :green)
-    # end
+    desc 'list', 'List supported gems'
+    def list
+      message = <<~STR
+        Supports upgrade for:
+        #{'=' * 76}
+            #{format_list}
+      STR
+      puts set_color(message, :green)
+    end
 
     private
-
-    def classify(gem)
-      gem.split('_').collect(&:capitalize).join
-    end
 
     def format_list
       SUPPORTED_GEMS.map do |gem, versions|

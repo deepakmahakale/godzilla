@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'thor'
-require 'wanda/sub_command_base'
+require 'wanda/upgrade'
 
 module Wanda
-  class Rails < SubCommandBase
+  class Rails < Upgrade
     include Thor::Actions
 
     REQUIRED_RUBY = {
