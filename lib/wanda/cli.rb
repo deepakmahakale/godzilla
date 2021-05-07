@@ -8,36 +8,12 @@ module Wanda
   class CLI < Thor
     include Thor::Actions
 
-    REQUIRED_RUBY = {
-    # rails_version => required_ruby_version
-      '6.2' => {
-        required: '2.5.0',
-        recommended: '3.0'
-      },
-      '6.1' => {
-        required: '2.5.0',
-        recommended: '3.0'
-      },
-      '6.0' => {
-        required: '2.5.0',
-        recommended: '2.6'
-      },
-      '5.2' => {
-        required: '2.2.2',
-        recommended: '2.5'
-      },
-      '5.1' => {
-        required: '2.2.2',
-        recommended: '2.5'
-      },
-      '5.0' => {
-        required: '2.2.2',
-        recommended: '2.4'
-      },
-      '4.2' => {
-        required: '1.9.3',
-        recommended: '2.2'
-      }
+    # Keep sorted list | except rails
+    SUPPORTED_GEMS = {
+      rails: [
+        { from: 4.2, to: 5.2 },
+        { from: 5.2, to: 6.0 }
+      ]
     }.freeze
 
     def self.exit_on_failure?
@@ -46,40 +22,44 @@ module Wanda
 
     desc 'version', 'Display version'
     map %w[-v --version] => :version
-
     def version
       say "Wanda #{VERSION}"
     end
 
-    desc 'upgrade GEM [options]', 'upgrade the gem'
-    option :target, aliases: '-t'
-    option :project_directory, aliases: '-d'
-    def upgrade(gem, *options)
-      puts '==='
-      puts gem
-      puts options
-      puts '==='
-      invoke 'wanda:rails:sad', :aa => options
+    desc 'rails', 'rails upgrade'
+    subcommand "rails", Wanda::Rails
 
-      # klass = Object.const_get("Wanda::#{classify(gem)}")
-      # klass.upgrade(options)
-    end
+    # option :project_directory, aliases: '-d'
+    # def upgrade(gem, *extras)
+    #   klass = Object.const_get("Wanda::#{classify(gem)}")
+    #   obj = klass.new(options)
+    #   obj.rails4_2_to_5_2(extras)
+    # end
 
-    desc 'list [options]', 'list of supported gems'
-    def list(*options)
-      puts '
-      - rails
-      '
-    end
+    # desc 'list [options]', 'List supported gems'
+    # def list
+    #   message = <<~STR
+    #     Supports upgrade for:
+    #     #{'=' * 76}
+    #         #{format_list}
+    #   STR
+    #   puts set_color(message, :green)
+    # end
 
     private
 
-    def required_ruby_version(rails_version)
-      REQUIRED_RUBY.dig(rails_version, :recommended)
-    end
-
     def classify(gem)
       gem.split('_').collect(&:capitalize).join
+    end
+
+    def format_list
+      SUPPORTED_GEMS.map do |gem, versions|
+        version_list = versions.map do |version|
+          "#{version[:from]} => #{version[:to]}"
+        end.join(', ')
+
+        "#{gem}: " + version_list
+      end.join("\n    ")
     end
   end
 end
