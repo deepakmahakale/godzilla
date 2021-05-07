@@ -1,5 +1,7 @@
 # Wanda
 
+[![Gem Version](https://badge.fury.io/rb/wanda.svg)](https://badge.fury.io/rb/wanda)
+
 Welcome to your new gem! In this directory, you'll find the files you need to be
 able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wanda`.
 To experiment with that code, run `bin/console` for an interactive prompt.
@@ -24,7 +26,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```bash
+wanda rails upgrade --from 4.2 --to 5.2
+```
 
 ## Development
 
