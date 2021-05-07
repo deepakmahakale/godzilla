@@ -18,6 +18,10 @@ module Wanda
       '4.2' => { required: '1.9.3', recommended: '2.2' }
     }.freeze
 
+    def self.exit_on_failure?
+      true
+    end
+
     desc 'upgrade [options]', 'rails upgrade'
     option :from, aliases: '-f'
     option :to,   aliases: '-t'
@@ -40,7 +44,16 @@ module Wanda
           match.gsub(/(~>\s*)*[\d\.]+/, latest_rails_version(options[:to]))
         end
         gsub_file 'Gemfile', /^\s*ruby\s+.?([\d\.]+(p\d+)?)/ do |match|
-          match.gsub(/[\d\.]+(p\d+)?/, required_ruby_version(latest_rails_version(options[:to])))
+          current_version = match.match(/([\d\.]+(p[\d]+)?)/)[1]
+          required_version = required_ruby_version(
+            latest_rails_version(options[:to])
+          )
+          # Add flag to upgrade ruby to recommended
+          # Default: upgrade to required ruby
+          match.gsub(
+            /[\d\.]+(p\d+)?/,
+            latest_version(current_version, required_version)
+          )
         end
         gsub_file 'config/application.rb', /^.*active_record.raise_in_transactional_callbacks.*\n/, ''
         gsub_file 'config/application.rb', /^.*config.serve_static_assets.*\n/ do |match|
@@ -151,6 +164,12 @@ module Wanda
 
     def required_ruby_version(rails_version)
       REQUIRED_RUBY.dig(format_version(rails_version), :recommended)
+    end
+
+    # Returns latest version
+    # Add test case for this one including pre/rc/beta/alpha
+    def latest_version(*versions)
+      versions.sort_by { |v| Gem::Version.new(v) }.last
     end
   end
 end
