@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'thor'
 require 'wanda/rails'
 
@@ -27,7 +28,7 @@ module Wanda
     end
 
     desc 'rails', 'rails upgrade'
-    subcommand "rails", Wanda::Rails
+    subcommand 'rails', Wanda::Rails
 
     # option :project_directory, aliases: '-d'
     # def upgrade(gem, *extras)

@@ -34,7 +34,7 @@ module Wanda
     private
 
     def rails4_2_to_5_2
-      inside "#{options[:project_directory]}" do
+      inside options[:project_directory].to_s do
         # https://rubydoc.info/github/wycats/thor/master/Thor/Actions#uncomment_lines-instance_method
         gsub_file 'Gemfile', /gem\s+["']+rails['"\s,]+([~>\s\d\.]+)/ do |match|
           match.gsub(/(~>\s*)*[\d\.]+/, latest_rails_version(options[:to]))
@@ -50,7 +50,7 @@ module Wanda
           match.gsub('serve_static_files', 'public_file_server.enabled')
         end
         gsub_file 'config/application.rb', /^.*config.static_cache_control.*\n/ do |match|
-          match.gsub(/(static_cache_control\s*=\s*)(.*)/) { "#{$1} { 'Cache-Control' => #{$2} }" }
+          match.gsub(/(static_cache_control\s*=\s*)(.*)/) { "#{Regexp.last_match(1)} { 'Cache-Control' => #{Regexp.last_match(2)} }" }
         end
         gsub_file 'config/routes.rb', /^.*::Application.routes.draw.*\n/ do |match|
           match.gsub(/^\s*(.*::Application)/, 'Rails.application')
@@ -72,9 +72,9 @@ module Wanda
         unless File.exist?('app/models/application_record.rb')
           create_file 'app/models/application_record.rb' do
             <<~STR
-            class ApplicationRecord < ActiveRecord::Base
-              self.abstract_class = true
-            end
+              class ApplicationRecord < ActiveRecord::Base
+                self.abstract_class = true
+              end
             STR
           end
         end
@@ -90,9 +90,9 @@ module Wanda
         unless File.exist?('app/mailers/application_mailer.rb')
           create_file 'app/mailers/application_mailer.rb' do
             <<~STR
-            class ApplicationMailer < ActionMailer::Base
-              default from: "sample@\#{ActionMailer::Base.smtp_settings[:domain]}"
-            end
+              class ApplicationMailer < ActionMailer::Base
+                default from: "sample@\#{ActionMailer::Base.smtp_settings[:domain]}"
+              end
             STR
           end
         end
@@ -119,8 +119,8 @@ module Wanda
           behavior.
         STR
         puts set_color(warning, :red)
-        insert_into_file "config/application.rb",
-          :after => "Application < Rails::Application\n" do
+        insert_into_file 'config/application.rb',
+                         after: "Application < Rails::Application\n" do
           "    config.active_record.belongs_to_required_by_default = false\n"
         end
 
