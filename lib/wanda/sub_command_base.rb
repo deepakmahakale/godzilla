@@ -6,6 +6,9 @@ class SubCommandBase < Thor
   end
 
   def self.subcommand_prefix
-    name.gsub(/.*::/, '').gsub(/^[A-Z]/) { |match| match[0].downcase }.gsub(/[A-Z]/) { |match| "-#{match[0].downcase}" }
+    name
+      .gsub(/.*::/, '')
+      .gsub(/^[A-Z]/) { |match| match[0].downcase }
+      .gsub(/[A-Z]/)  { |match| "-#{match[0].downcase}" }
   end
 end

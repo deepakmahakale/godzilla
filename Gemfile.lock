@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wanda (0.0.1.beta)
+    wanda (0.0.2.beta)
       rails5-spec-converter (>= 2.0.0)
       rubocop-rspec (>= 1.28.0)
       thor (>= 1.0.0)
