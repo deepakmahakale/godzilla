@@ -264,11 +264,5 @@ module Wanda
     def latest_version(*versions)
       versions.sort_by { |v| Gem::Version.new(v) }.last
     end
-
-    # Returns latest version
-    # Add test case for this one including pre/rc/beta/alpha
-    def latest_version(*versions)
-      versions.sort_by { |v| Gem::Version.new(v) }.last
-    end
   end
 end
