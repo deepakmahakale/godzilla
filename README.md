@@ -2,11 +2,10 @@
 
 [![Gem Version](https://badge.fury.io/rb/wanda.svg)](https://badge.fury.io/rb/wanda)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be
-able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wanda`.
-To experiment with that code, run `bin/console` for an interactive prompt.
+Wanda helps you upgrade your rails application with minimal inputs.
 
-TODO: Delete this and the text above, and describe your gem
+When you upgrade the application it will be upgraded with the recommended versions
+of ruby and rails.
 
 ## Installation
 
@@ -27,7 +26,21 @@ Or install it yourself as:
 ## Usage
 
 ```bash
-wanda rails upgrade --from 4.2 --to 5.2
+Usage:
+  wanda upgrade rails [options]
+
+Options:
+  -f, [--from=FROM]                            # Run `wanda list` to get list of supported versions
+  -t, --to=TO                                  # Run `wanda list` to get list of supported versions
+  -d, [--project-directory=PROJECT_DIRECTORY]
+  -r, [--recommended], [--no-recommended]      # Upgrade to recommended ruby version.
+                                               # Using --no-recommended will only upgrade the ruby to minimum required version
+                                               # Default: true
+  -b, [--source-branch=SOURCE_BRANCH]          # From where to checkout the new branch. Default is current branch
+      [--target-branch=TARGET_BRANCH]          # New branch name
+                                               # Default: wanda/rails_upgrade
+
+Rails upgrade
 ```
 
 ## Development
